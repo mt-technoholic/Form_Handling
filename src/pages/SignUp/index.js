@@ -3,8 +3,11 @@ import Form from './Form';
 
 const SignUp = () => {
   return (
-    <div>
-        SignUp Page
+    <div className='flex flex-col justify-center items-center min-h-screen'>
+        <div className='w-96'>
+          <h1 className='text-2xl text-center font-bold mb-4'>Sign Up</h1>
+          <Form />
+        </div>
     </div>
   )
 }
