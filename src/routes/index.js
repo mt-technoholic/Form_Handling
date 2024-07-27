@@ -1,14 +1,16 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+import useStore from "../(store)/store";
 import * as Page from "../pages";
 import * as Landlord from "../pages/Landlord";
 import * as Tenant from "../pages/Tenant";
 
-const index = ({ role }) => {
+const AppRoutes = () => {
+  const { role } = useStore();
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Page.Home role={role}/>}>
+        <Route path="/" element={<Page.Home role={role} />}>
           {role === "landlord" && (
             <>
               <Route path="/" element={<Landlord.Dashboard />} />
@@ -34,4 +36,4 @@ const index = ({ role }) => {
   );
 };
 
-export default index;
+export default AppRoutes;
