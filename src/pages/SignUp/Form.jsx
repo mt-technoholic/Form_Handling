@@ -53,7 +53,11 @@ const SignUpForm = () => {
             placeholder="Password"
           />
 
-          <Component.Button disabled={isSubmitting}>Register</Component.Button>
+          <div className="mt-3">
+            <Component.Button disabled={isSubmitting}>
+              Register
+            </Component.Button>
+          </div>
         </Form>
       )}
     </Formik>

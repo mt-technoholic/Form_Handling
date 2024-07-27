@@ -16,7 +16,7 @@ const InputField = ({ name, label, type = "text", placeholder }) => {
         className="input input-bordered w-full"
       />
       <div className="label">
-        <ErrorMessage className="label-text-alt" name={name} component="div" />
+        <ErrorMessage className="label-text-alt text-red-500" name={name} component="div" />
       </div>
     </label>
   );
