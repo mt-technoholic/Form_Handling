@@ -8,3 +8,5 @@ export { default as Button } from './Button';
 // Other Components
 export { default as ThemeController } from './ThemeController';
 export { default as Navbar } from './Navbar';
+export {default as MenuItems} from './MenuItems';
+export {default as Sidebar} from './SideBar';
