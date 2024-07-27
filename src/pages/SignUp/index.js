@@ -1,16 +1,20 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import Form from "./Form";
-import * as Component from "../../components";
+import * as Layouts from '../../layouts';
 
 const SignUp = () => {
+
+  const navigate = useNavigate();
+
   return (
-    <div className="flex flex-col justify-start gap-14 items-center min-h-screen ">
-      <Component.Navbar />
-      <div className="px-3 w-full sm:w-[500px]">
-        <h1 className="text-2xl text-center font-bold mb-4">Sign Up</h1>
-        <Form />
-      </div>
-    </div>
+    <Layouts.AuthLayout 
+      title={"Sign Up"}
+      btnTitle={"Login"}
+      btnHandler={() => navigate('/login')}
+    >
+      <Form />
+    </Layouts.AuthLayout>
   );
 };
 

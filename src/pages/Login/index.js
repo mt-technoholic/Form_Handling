@@ -1,9 +1,20 @@
-import React from 'react'
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import Form from "./Form";
+import * as Layouts from "../../layouts";
 
 const Login = () => {
-  return (
-    <div>Login Page</div>
-  )
-}
+  const navigate = useNavigate();
 
-export default Login
+  return (
+    <Layouts.AuthLayout
+      title={"login"}
+      btnTitle={"Register"}
+      btnHandler={() => navigate("/sign-up")}
+    >
+      <Form />
+    </Layouts.AuthLayout>
+  );
+};
+
+export default Login;
