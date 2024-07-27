@@ -3,7 +3,7 @@ import React from "react";
 const Button = ({disabled, children}) => {
   return (
     <button 
-      className={`${disabled ? 'cursor-not-allowed bg-slate-300' : 'bg-blue-500 hover:bg-blue-700'}   text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline`}
+      className={`btn btn-primary w-full rounded-full`}
       type="submit" 
       disabled={disabled}
     >

@@ -1,65 +1,63 @@
-import React from 'react'
-import { Formik, Form } from 'formik';
-import { ValidateRegistrationForm } from '../../utils/validation';
-import { InputField, Button } from '../../components'
+import React from "react";
+import { Formik, Form } from "formik";
+import * as validation from "../../utils/validation";
+import * as Component from "../../components";
 
 const SignUpForm = () => {
-  
   const initialValues = {
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: ''
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
   };
-  
+
   const handleSubmit = (values, { setSubmitting }) => {
     setTimeout(() => {
       console.log(JSON.stringify(values, null, 2));
       setSubmitting(false);
-      alert('Registration successful!');
+      alert("Registration successful!");
     }, 10000);
   };
 
   return (
     <Formik
       initialValues={initialValues}
-      validationSchema={ValidateRegistrationForm}
+      validationSchema={validation.ValidateRegistrationForm}
       onSubmit={handleSubmit}
     >
       {({ isSubmitting }) => (
-        <Form className='flex flex-col gap-5'>
-
-          <InputField 
+        <Form className="flex flex-col">
+          <Component.InputField
             name="firstName"
-            label="First Name" 
-            placeholder="First Name" 
+            label="First Name"
+            placeholder="First Name"
           />
 
-          <InputField
+          <Component.InputField
             name="lastName"
             label="Last Name"
             placeholder="Last Name"
           />
 
-          <InputField
+          <Component.InputField
             name="email"
             label="Email Address"
-            type='email'
+            type="email"
             placeholder="Email Address"
           />
 
-          <InputField
+          <Component.InputField
             name="password"
             label="Password"
-            type='password'
+            type="password"
             placeholder="Password"
           />
 
-          <Button disabled={isSubmitting}>Register</Button>
+          <Component.Button disabled={isSubmitting}>Register</Component.Button>
         </Form>
       )}
     </Formik>
-  )
-}
+  );
+};
 
-export default SignUpForm
+export default SignUpForm;

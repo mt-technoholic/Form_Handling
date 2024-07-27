@@ -1,23 +1,24 @@
 import React from "react";
 import { Field, ErrorMessage } from "formik";
 
-const InputField = ({
-  name,
-  label,
-  type="text",
-  placeholder,
-}) => {
+const InputField = ({ name, label, type = "text", placeholder }) => {
   return (
-    <div className="flex flex-col">
-      { label && <label htmlFor={name}>{label}</label>}
-      <Field 
-        className='p-2 border border-gray-300 rounded mt-1'
-        name={name} 
+    <label className="form-control w-full">
+      {label && (
+        <div className="label">
+          <span className="label-text">{label}</span>
+        </div>
+      )}
+      <Field
+        name={name}
         type={type}
         placeholder={placeholder}
+        className="input input-bordered w-full"
       />
-      <ErrorMessage name={name} component="div" />
-    </div>
+      <div className="label">
+        <ErrorMessage className="label-text-alt" name={name} component="div" />
+      </div>
+    </label>
   );
 };
 
