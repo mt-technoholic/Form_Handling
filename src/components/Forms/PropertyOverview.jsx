@@ -1,9 +1,52 @@
-import React from 'react'
+import React from "react";
+import { Formik, Form } from "formik";
+import { ValidatePropertyOverviewForm } from "../../utils/validation";
+import * as Component from "@/components";
 
-const PropertyOverview = () => {
+const PropertyOverview = ({ handleNext }) => {
+  const initialValues = {
+    property: "",
+    unit: "",
+    address: "",
+  };
+
+  const handleSubmit = (values, { setSubmitting }) => {
+    setSubmitting(false);
+    handleNext();
+  };
+
   return (
-    <div>Property Overview Form</div>
-  )
-}
+    <Formik
+      initialValues={initialValues}
+      validationSchema={ValidatePropertyOverviewForm}
+      onSubmit={handleSubmit}
+    >
+      {({isSubmitting}) => (
+        <Form className="flex flex-col w-[800px]">
+          <Component.InputField
+            name="property"
+            label="Property Name"
+            placeholder="Property Name"
+          />
 
-export default PropertyOverview
+          <Component.InputField
+            name="unit"
+            label="Unit Number"
+            placeholder="Unit Number"
+          />
+
+          <Component.InputField
+            name="address"
+            label="Address"
+            placeholder="Address"
+          />
+          <div>
+            <Component.Button disabled={isSubmitting}>Next</Component.Button>
+          </div>
+        </Form>
+      )}
+    </Formik>
+  );
+};
+
+export default PropertyOverview;

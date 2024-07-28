@@ -6,26 +6,41 @@ import * as Forms from "../../../components/Forms";
 const NewProperty = () => {
   const [currentStep, setCurrentStep] = useState(1);
 
-  const handleNextBtn = () => {
+  const handleNext = () => {
     setCurrentStep(currentStep + 1);
   };
 
-  const handleBackBtn = () => {
+  const handleBack = () => {
     setCurrentStep(currentStep - 1);
+  };
+
+  const handleFormSubmit = () => {
+    alert("Form submitted");
   };
 
   const renderForm = () => {
     switch (currentStep) {
       case 1:
-        return <Forms.PropertyOverviewForm />;
+        return (
+          <Forms.PropertyOverviewForm
+            handleNext={handleNext}
+            handleBack={handleBack}
+          />
+        );
       case 2:
-        return <Forms.PropertyUnitsForm />;
+        return (
+          <Forms.PropertyUnitsForm
+            handleNext={handleNext}
+            handleBack={handleBack}
+          />
+        );
       case 3:
-        return <Forms.PropertyAmenitiesForm />;
-      case 4:
-        return <Forms.PropertyPhotosForm />;
-      case 5:
-        return <Forms.PropertyPricingForm />;
+        return (
+          <Forms.PropertyAmenitiesForm
+            handleFormSubmit={handleFormSubmit}
+            handleBack={handleBack}
+          />
+        );
       default:
         return "";
     }
@@ -37,14 +52,6 @@ const NewProperty = () => {
         <Components.Steps steps={NewPropertySteps} currentStep={currentStep} />
       </div>
       <div className="flex justify-center">{renderForm()}</div>
-      <div className="flex px-52 gap-10">
-        <div className="w-1/2">
-          <Components.Button handler={handleBackBtn}>Back</Components.Button>
-        </div>
-        <div className="w-1/2">
-          <Components.Button handler={handleNextBtn}>Next</Components.Button>
-        </div>
-      </div>
     </div>
   );
 };

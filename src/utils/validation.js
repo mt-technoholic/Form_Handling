@@ -20,4 +20,26 @@ const ValidateLoginForm = Yup.object({
     .required("Password is required"),
 });
 
-export { ValidateRegistrationForm, ValidateLoginForm };
+const ValidatePropertyOverviewForm = Yup.object({
+  property: Yup.string().required("Property Name is required"),
+  unit: Yup.string().required("Unit Number is required"),
+  address: Yup.string().required("Address is required"),
+});
+
+const ValidatePropertyUnitsForm = Yup.object({
+  unit: Yup.string().required("Unit Number is required"),
+  address: Yup.string().required("Address is required"),
+});
+
+const validatePropertyAmenitiesForm = Yup.object({
+  amenities: Yup.string().required("Amenities is required"),
+  amenities_number: Yup.string().required("Amenities Number is required"),
+});
+
+export { 
+  ValidateRegistrationForm, 
+  ValidateLoginForm,
+  ValidatePropertyOverviewForm,
+  ValidatePropertyUnitsForm,
+  validatePropertyAmenitiesForm,
+};

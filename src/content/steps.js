@@ -1,1 +1,1 @@
-export const NewPropertySteps = ["Overview", "Units", "Amenities", "Photos", "pricing"];
+export const NewPropertySteps = ["Overview", "Units", "Amenities"];
