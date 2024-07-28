@@ -18,7 +18,7 @@ const Home = () => {
   return (
     <div className="flex h-screen">
       <Components.Sidebar />
-      <div className="w-full flex justify-center items-center">
+      <div className="w-full flex flex-col items-center py-9">
         <Outlet />
       </div>
     </div>
