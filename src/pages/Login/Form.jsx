@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Formik, Form } from "formik";
+import { toast } from "react-toastify";
 import * as validation from "../../utils/validation";
 import * as Component from "../../components";
 
@@ -17,6 +18,7 @@ const LoginForm = () => {
       localStorage.setItem('role', "landlord");
       localStorage.setItem('token', "12345");
       setSubmitting(false);
+      toast.success("Login Successfully");
       navigate('/')
     }, 2000);
   };

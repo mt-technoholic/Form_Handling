@@ -10,7 +10,7 @@ const AppRoutes = () => {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Page.Home role={role} />}>
+        <Route path="/" element={<Page.Home/>}>
           {role === "landlord" && (
             <>
               <Route path="/" element={<Landlord.Dashboard />} />
@@ -19,7 +19,7 @@ const AppRoutes = () => {
               <Route path="/properties" element={<Landlord.Properties />} />
               <Route path="/properties/new" element={<Landlord.NewProperty />} />
               <Route path="/properties/:id" element={<Landlord.Property />} />
-              
+
               {/* Other routes */}
               <Route path="/tenants" element={<Landlord.Tenants />} />
               <Route path="/prospects" element={<Landlord.Prospects />} />
