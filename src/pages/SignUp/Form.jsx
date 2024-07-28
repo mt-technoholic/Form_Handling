@@ -1,5 +1,7 @@
 import React from "react";
 import { Formik, Form } from "formik";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import * as validation from "../../utils/validation";
 import * as Component from "../../components";
 
@@ -11,12 +13,14 @@ const SignUpForm = () => {
     password: "",
   };
 
+  const navigate = useNavigate();
+
   const handleSubmit = (values, { setSubmitting }) => {
     setTimeout(() => {
-      console.log(JSON.stringify(values, null, 2));
       setSubmitting(false);
-      alert("Registration successful!");
-    }, 10000);
+      navigate("/login");
+      toast.success("Account created successfully! Please login to continue.");
+    }, 2000);
   };
 
   return (

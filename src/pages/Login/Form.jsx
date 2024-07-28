@@ -2,25 +2,31 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Formik, Form } from "formik";
 import { toast } from "react-toastify";
-import * as validation from "../../utils/validation";
-import * as Component from "../../components";
+import * as API from "@/network/landlord/auth";
+import * as validation from "@/utils/validation";
+import * as Component from "@/components";
 
 const LoginForm = () => {
-  const initialValues = {
-    email: "",
-    password: "",
-  };
-
+  const initialValues = { email: "", password: "" };
   const navigate = useNavigate();
 
   const handleSubmit = (values, { setSubmitting }) => {
-    setTimeout(() => {
-      localStorage.setItem('role', "landlord");
-      localStorage.setItem('token', "12345");
+    toast.promise(API.login(values), {
+      loading: "Logging in...",
+      success: `Welcome back, ${values.email}!`,
+      error: "Invalid email or password",
+      pending: "Logging in...",
+    }).then((res) => {
+      if(res.apiCallStatus === "success") {
+        localStorage.setItem('role', "landlord");
+        localStorage.setItem('token', res.token);
+        setSubmitting(false);
+        navigate("/");
+      }
+    }).catch((err) => {
+      console.error(err.response.data.message);
       setSubmitting(false);
-      toast.success("Login Successfully");
-      navigate('/')
-    }, 2000);
+    });
   };
 
   return (
