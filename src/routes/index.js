@@ -1,9 +1,9 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import useStore from "../(store)/store";
-import * as Page from "../pages";
-import * as Landlord from "../pages/Landlord";
-import * as Tenant from "../pages/Tenant";
+import useStore from "@/(store)/store";
+import * as Page from "@/pages";
+import * as Landlord from "@/pages/Landlord";
+import * as Tenant from "@/pages/Tenant";
 
 const AppRoutes = () => {
   const { role } = useStore();
