@@ -24,7 +24,7 @@ const LoginForm = () => {
         navigate("/");
       }
     }).catch((err) => {
-      console.error(err.response.data.message);
+      console.error(err.response?.data?.message);
       setSubmitting(false);
     });
   };

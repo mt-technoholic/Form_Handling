@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import Form from "./Form";
+import * as Forms from "../../components/Forms";
 import * as Layouts from '../../layouts';
 
 const SignUp = () => {
@@ -13,7 +13,7 @@ const SignUp = () => {
       btnTitle={"Login"}
       btnHandler={() => navigate('/login')}
     >
-      <Form />
+      <Forms.SignUpForm />
     </Layouts.AuthLayout>
   );
 };
