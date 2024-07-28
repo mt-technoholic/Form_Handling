@@ -1,10 +1,11 @@
 import React from "react";
 
-const Button = ({disabled, children}) => {
+const Button = ({disabled, handler, children}) => {
   return (
     <button 
       className={`btn btn-primary w-full rounded-full`}
-      type="submit" 
+      type="submit"
+      onClick={handler}
       disabled={disabled}
     >
       {children}

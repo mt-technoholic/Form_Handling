@@ -7,17 +7,17 @@ const ValidateRegistrationForm = Yup.object({
   lastName: Yup.string()
     .max(20, "Must be 20 characters or less")
     .required("Last Name is required"),
-  email: Yup.string().email("Invalid email address").required("Email is Required"),
+  email: Yup.string().email("Invalid email address").required("Email is required"),
   password: Yup.string()
     .min(6, "Password must be at least 6 characters")
     .required("Password is required"),
 });
 
 const ValidateLoginForm = Yup.object({
-  email: Yup.string().email("Invalid email address").required("Required"),
+  email: Yup.string().email("Invalid email address").required("Email is required"),
   password: Yup.string()
     .min(6, "Password must be at least 6 characters")
-    .required("Required"),
+    .required("Password is required"),
 });
 
 export { ValidateRegistrationForm, ValidateLoginForm };
