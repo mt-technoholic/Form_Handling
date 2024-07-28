@@ -6,7 +6,7 @@ import * as Component from "@/components";
 const PropertyOverview = ({ handleNext }) => {
   const initialValues = {
     property: "",
-    unit: "",
+    price: "",
     address: "",
   };
 
@@ -30,9 +30,9 @@ const PropertyOverview = ({ handleNext }) => {
           />
 
           <Component.InputField
-            name="unit"
-            label="Unit Number"
-            placeholder="Unit Number"
+            name="price"
+            label="Price"
+            placeholder="Price"
           />
 
           <Component.InputField

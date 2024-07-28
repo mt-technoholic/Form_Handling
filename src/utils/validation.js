@@ -22,13 +22,13 @@ const ValidateLoginForm = Yup.object({
 
 const ValidatePropertyOverviewForm = Yup.object({
   property: Yup.string().required("Property Name is required"),
-  unit: Yup.string().required("Unit Number is required"),
+  price: Yup.string().required("Price is required"),
   address: Yup.string().required("Address is required"),
 });
 
 const ValidatePropertyUnitsForm = Yup.object({
   unit: Yup.string().required("Unit Number is required"),
-  address: Yup.string().required("Address is required"),
+  phone: Yup.string().required("Address is required"),
 });
 
 const validatePropertyAmenitiesForm = Yup.object({

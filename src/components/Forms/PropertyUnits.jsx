@@ -6,7 +6,7 @@ import * as Component from "@/components";
 const PropertyUnits = ({ handleNext, handleBack }) => {
   const initialValues = {
     unit: "",
-    address: "",
+    phone: "",
   };
 
   const handleSubmit = (values, { setSubmitting }) => {
@@ -29,9 +29,9 @@ const PropertyUnits = ({ handleNext, handleBack }) => {
           />
 
           <Component.InputField
-            name="address"
-            label="Address"
-            placeholder="Address"
+            name="phone"
+            label="Phone Number"
+            placeholder="Phone Number"
           />
           <div className="flex gap-5">
             <div className="w-1/2">
