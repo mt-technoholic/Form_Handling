@@ -20,26 +20,24 @@ const ValidateLoginForm = Yup.object({
     .required("Password is required"),
 });
 
-const ValidatePropertyOverviewForm = Yup.object({
-  property: Yup.string().required("Property Name is required"),
-  price: Yup.string().required("Price is required"),
-  address: Yup.string().required("Address is required"),
-});
-
-const ValidatePropertyUnitsForm = Yup.object({
-  unit: Yup.string().required("Unit Number is required"),
-  phone: Yup.string().required("Address is required"),
-});
-
-const validatePropertyAmenitiesForm = Yup.object({
-  amenities: Yup.string().required("Amenities is required"),
-  amenities_number: Yup.string().required("Amenities Number is required"),
-});
+const NewPropertyValidationSchemas = [
+  Yup.object({
+    property: Yup.string().required("Property Name is required"),
+    price: Yup.string().required("Price is required"),
+    address: Yup.string().required("Address is required"),
+  }),
+  Yup.object({
+    unit: Yup.string().required("Unit Number is required"),
+    phone: Yup.string().required("Address is required"),
+  }),
+  Yup.object({
+    amenities: Yup.string().required("Amenities is required"),
+    amenities_number: Yup.string().required("Amenities Number is required"),
+  }),
+];
 
 export { 
   ValidateRegistrationForm, 
   ValidateLoginForm,
-  ValidatePropertyOverviewForm,
-  ValidatePropertyUnitsForm,
-  validatePropertyAmenitiesForm,
+  NewPropertyValidationSchemas,
 };

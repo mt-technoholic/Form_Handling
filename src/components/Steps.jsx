@@ -1,12 +1,12 @@
 import React from "react";
 
-const Steps = ({ steps, currentStep }) => {
+const Steps = ({ steps, activeStep }) => {
   return (
     <ul className="steps">
       {steps.map((step, index) => (
         <li
           key={index}
-          className={`step ${currentStep > index ? "step-primary" : ""}`}
+          className={`step ${activeStep >= index ? "step-primary" : ""}`}
         >
           <div className="w-40">{step}</div>
         </li>
