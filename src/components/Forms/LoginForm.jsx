@@ -18,8 +18,9 @@ const LoginForm = () => {
       pending: "Logging in...",
     }).then((res) => {
       if(res.apiCallStatus === "success") {
-        localStorage.setItem('role', "landlord");
-        localStorage.setItem('token', res.token);
+        console.log(res);
+        localStorage.setItem('role', res.message.role);
+        localStorage.setItem('token', res.message.token);
         setSubmitting(false);
         navigate("/");
       }
