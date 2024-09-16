@@ -7,13 +7,12 @@ import { Formik, Form } from "formik";
 
 const NewProperty = () => {
   const [step, setStep] = useState(0);
-
+  const steps = [<Forms.PropertyOverviewForm />, <Forms.PropertyUnitsForm />, <Forms.PropertyAmenitiesForm />];
   const initialValues = {
     property: "",
     price: "",
     address: "",
-    unit: "",
-    phone: "",
+    units: [{unit: "", phone: ""}], 
     amenities: "",
     amenities_number: "",
   };
@@ -22,15 +21,17 @@ const NewProperty = () => {
     setStep(step + 1);
   };
 
-  const handlePrev = () => {
+  const handlePrev = (setErrors) => {
     setStep(step - 1);
+    setErrors({});
   };
 
-  const handleSubmit = (values) => {
+  const handleSubmit = (values, { setTouched }) => {
     if (step === NewPropertySteps.length - 1) {
       alert(JSON.stringify(values, null, 2));
     } else {
       handleNext();
+      setTouched({});
     }
   };
 
@@ -45,23 +46,14 @@ const NewProperty = () => {
           validationSchema={NewPropertyValidationSchemas[step]}
           onSubmit={handleSubmit}
         >
-          {({ isValid }) => (
+          {({values, isValid, errors, setErrors }) => (
             <Form className="flex flex-col w-[800px]">
-              {step === 0 && (
-                <Forms.PropertyOverviewForm />
-              )}
-
-              {step === 1 && (
-                <Forms.PropertyUnitsForm />
-              )}
-
-              {step === 2 && (
-                <Forms.PropertyAmenitiesForm />
-              )}
-
+              {console.log(errors)}
+              {console.log(isValid)}
+              {React.cloneElement(steps[step], { values })}
               <div className="flex w-[390px] gap-4">
                 {step > 0 && (
-                  <Components.Button type={'button'} handler={handlePrev}>
+                  <Components.Button type={'button'} handler={() => handlePrev(setErrors)}>
                     Back
                   </Components.Button>
                 )}

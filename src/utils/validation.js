@@ -26,9 +26,13 @@ const NewPropertyValidationSchemas = [
     price: Yup.string().required("Price is required"),
     address: Yup.string().required("Address is required"),
   }),
-  Yup.object({
-    unit: Yup.string().required("Unit Number is required"),
-    phone: Yup.string().required("Address is required"),
+  Yup.object().shape({
+    units: Yup.array().of(
+      Yup.object().shape({
+        unit: Yup.string().required("Unit Number is required"),
+        phone: Yup.string().required("Address is required"),
+      })
+    ),
   }),
   Yup.object({
     amenities: Yup.string().required("Amenities is required"),
